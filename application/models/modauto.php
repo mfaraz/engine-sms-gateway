@@ -16,7 +16,7 @@ class Modauto extends CI_Model {
     }
 
     function susun() {
-        $this->db->where('akses',0);
+        $this->db->where('akses', 0);
         $data = $this->db->get('proses');
         if ($data->num_rows > 0) {
             return $data->result();
@@ -32,6 +32,10 @@ class Modauto extends CI_Model {
     function updateProses($params) {
         $this->db->where('id', $params);
         $this->db->update('proses', array('akses' => 1));
+    }
+
+    function insertLogOutbox($params) {
+        $this->db->insert('outbox_log', $params);
     }
 
 }

@@ -39,19 +39,32 @@ class Auto extends CI_Controller {
                     'code' => $respon[0]->code,
                     'message' => $respon[0]->message
                 );
+                $this->modauto->insertLog($ws_log);
+                $da = $this->modauto->susun();
+                foreach ($da as $dt) {
+                    $message = 'DISPENDA Tulungagung mengucapkan Terimakasih Kpd Yth. ' . $dt->nama . ', pemilik NOP ' . $dt->nop . ', atas pembayaran PBB tahun ' . $dt->tahun . ' sejumlah Rp ' . $dt->nominal;
+                    $insert = array(
+                        'DestinationNumber' => $dt->telp,
+                        'TextDecoded' => $message,
+                        'SenderID' => 'Merah',
+                        'CreatorID' => $dt->user,
+                    );
+                    $this->modauto->outbox($insert);
+                    $this->modauto->updateProses($dt->id);
+                    $var = array(
+                        'idProses' => $dt->id,
+                        'data' => json_encode($insert)
+                    );
+                    $this->modauto->insertLogOutbox($var);
+                }
             }
         } else {
             $ws_log = array(
                 'code' => $respon[0]->code,
                 'message' => $respon[0]->message
             );
+            $this->modauto->insertLog($ws_log);
         }
-        $this->modauto->insertLog($ws_log);
-        echo '<pre>';
-        print_r($respon);
-//        print_r($input);
-//        print_r($ws_log);
-        echo '</pre>';
     }
 
     function test() { // function untuk mengirim data dari oracle ke vps
