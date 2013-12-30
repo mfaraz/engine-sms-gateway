@@ -52,9 +52,10 @@ $active_group = 'default';
 $active_record = TRUE;
 
 $db['default']['hostname'] = 'localhost';
-$db['default']['username'] = 'ruly';
+$db['default']['username'] = 'rl';
 $db['default']['password'] = 'rumahlinux';
-$db['default']['database'] = 'ruly_enggine';
+//$db['default']['database'] = 'ruly_enggine';
+$db['default']['database'] = 'rl_gammu';
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';
 $db['default']['pconnect'] = TRUE;
