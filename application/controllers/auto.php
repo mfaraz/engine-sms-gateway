@@ -80,26 +80,6 @@ class Auto extends CI_Controller {
         echo '</pre>';
     }
 
-    function susun() {
-        $da = $this->modauto->susun();
-        foreach ($da as $dt) {
-            $message = 'DISPENDA Tulungagung mengucapkan Terimakasih Kpd Yth. ' . $dt->nama . ', pemilik NOP ' . $dt->nop . ', atas pembayaran PBB tahun ' . $dt->tahun . ' sejumlah ' . $dt->nominal;
-            $insert = array(
-                'DestinationNumber' => $dt->telp,
-                'TextDecoded' => $message,
-                'SenderID' => 'Merah',
-                'CreatorID' => $dt->user,
-            );
-            $this->modauto->outbox($insert);
-            $this->modauto->updateProses($dt->id);
-            $panjang = strlen($message);
-            echo '<pre>';
-            print_r($insert);
-            echo '<br/>panjang : ' . $panjang;
-            echo '</pre>';
-        }
-    }
-
 }
 
 ?>
