@@ -47,6 +47,6 @@ define('FOPEN_READ_WRITE_CREATE_STRICT', 'x+b');
   |
  */
 
-define('SERVER', 'http://localhost/server/index.php/service');
+define('DTCEN', 'http://localhost/datacenter/index.php/service');
 /* End of file constants.php */
 /* Location: ./application/config/constants.php */

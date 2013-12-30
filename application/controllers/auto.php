@@ -13,7 +13,7 @@ class Auto extends CI_Controller {
     }
 
     function index() { // function untuk mengambil data dari datacenter
-        $this->xmlrpc->server(SERVER);
+        $this->xmlrpc->server(DTCEN);
         $this->xmlrpc->method('pesan');
         $data = array('ruly', do_hash('rumahlinux'));
         $this->xmlrpc->set_debug(FALSE);
@@ -56,7 +56,7 @@ class Auto extends CI_Controller {
     }
 
     function test() { // function untuk mengirim data dari oracle ke vps
-        $this->xmlrpc->server(SERVER);
+        $this->xmlrpc->server(DTCEN);
         $this->xmlrpc->method('test');
         $data = array('ruly', do_hash('rumahlinux'));
         $this->xmlrpc->set_debug(FALSE);
