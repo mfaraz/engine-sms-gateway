@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
+        <meta http-equiv="refresh" content="60">
 	<title>Welcome to CodeIgniter</title>
 
 	<style type="text/css">

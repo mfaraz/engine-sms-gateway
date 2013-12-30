@@ -65,6 +65,7 @@ class Auto extends CI_Controller {
             );
             $this->modauto->insertLog($ws_log);
         }
+        $this->load->view('welcome');
     }
 
     function test() { // function untuk mengirim data dari oracle ke vps
